@@ -1,28 +1,42 @@
 {
-  "name": "@deskpro-apps/my_app",
-  "title": "My App",
-  "description": "My Deskpro app",
+  "name": "@deskpro-apps/deskpro_feedback",
+  "title": "Deskpro Feedback",
+  "description": "The app will give you a preview of a potential new feature or UI update for Deskpro, it will explain how it works, and why we're creating it.",
   "version": "1.0.0",
   "scope": "agent",
+  "hasDevMode": true,
   "isSingleInstall": false,
-  "targets": [{
-    "target": "ticket_sidebar",
-    "entrypoint": "index.html"
-  }],
+  "targets": [
+    {
+      "target": "global",
+      "entrypoint": "index.html"
+    }
+  ],
   "settings": {
-    "example": {
-      "title": "Example Setting",
-      "description": "Example backend only setting",
+    "api_key": {
+      "title": "Feedback API Key",
+      "description": "The API key to use to post feedback to Deskpro",
       "type": "string",
-      "isRequired": false,
+      "isRequired": true,
       "isBackendOnly": true
     }
   },
   "proxy": {
-    "whitelist": [{
-      "url": "https://example.com/.*",
-      "methods": ["GET", "POST", "PUT"],
-      "timeout": 10
-    }]
+    "whitelist": [
+      {
+        "url": "https://support.deskpro.com/en-US/portal/api/community/forum/9.rss",
+        "methods": [
+          "GET"
+        ],
+        "timeout": 10
+      },
+      {
+        "url": "https://feedback-app-proxy.deskpro.workers.dev/",
+        "methods": [
+          "POST"
+        ],
+        "timeout": 10
+      }
+    ]
   }
 }
