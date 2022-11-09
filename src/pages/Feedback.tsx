@@ -33,9 +33,7 @@ export const Feedback = () => {
 
     const dataSessionStorage = sessionStorage.getItem("feedback");
 
-    if (!dataSessionStorage) return;
-
-    const data = (JSON.parse(dataSessionStorage) as ITab[]).find(
+    const data = (JSON.parse(dataSessionStorage || "[]") as ITab[]).find(
       (e) => e?.guid?.split("/")?.slice(-1)[0] === id
     );
 

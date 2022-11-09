@@ -16,7 +16,7 @@ function App() {
     <DeskproAppProvider>
       <HashRouter>
         <Routes>
-          <Route index path="/" element={<Main />}></Route>
+          <Route path="/" element={<Main />}></Route>
           <Route index path="/feedback/:id" element={<Feedback />}></Route>
         </Routes>
       </HashRouter>

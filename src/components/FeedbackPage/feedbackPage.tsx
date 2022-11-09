@@ -52,7 +52,7 @@ export const FeedbackPage = ({ setFinished, data }: Props) => {
   useInitialisedDeskproAppClient((client) => {
     client.setWidth(640);
   });
-  <body></body>;
+
   if (!data || !client) return <Stack></Stack>;
 
   const questions = Object.keys(data)
