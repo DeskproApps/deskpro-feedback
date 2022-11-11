@@ -73,7 +73,7 @@ export const FeedbackPage = ({ setFinished, data }: Props) => {
 
     text += `Publish: ${checked ? "Yes" : "No"}\nName: ${
       deskproUser.name
-    }\nEmail: ${deskproUser.primaryEmail}`;
+    }\nEmail: ${deskproUser.primaryEmail}\nHostname: ${location.hostname}`;
 
     const pFetch = await proxyFetch(client);
 
@@ -108,7 +108,7 @@ export const FeedbackPage = ({ setFinished, data }: Props) => {
     ) as IFeedbackStatus[];
 
     parsedFeedback.push({
-      guid: data?.guid?.split("/")?.slice(-1)[0],
+      guid: data?.guid,
       status: "done",
     });
 
@@ -118,13 +118,13 @@ export const FeedbackPage = ({ setFinished, data }: Props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <Stack vertical style={{ width: "100%" }} gap={12}>
+    <form onSubmit={handleSubmit(submit)} style={{ width: "100%" }}>
+      <Stack vertical gap={12}>
         <Stack vertical>{data && parse(data.description)}</Stack>
-        <Stack vertical gap={12}>
+        <Stack vertical gap={12} >
           {questions.map((question, i) => {
             return (
-              <Stack justify="start" vertical style={{ width: "100%" }} key={i}>
+              <Stack justify="start" vertical key={i} style={{ width: "100%" }}>
                 <h1 style={{ fontSize: "14px" }}>{`${i + 1}. ${question}`}</h1>
                 <TextArea
                   placeholder="Enter text"
@@ -134,6 +134,7 @@ export const FeedbackPage = ({ setFinished, data }: Props) => {
                     backgroundColor: "white",
                     border: `1px solid ${theme.colors.grey20}`,
                     overflow: "hidden",
+                    resize: "none",
                   }}
                   {...register(`question_${i}`, {
                     required: i !== questions.length - 1,

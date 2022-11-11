@@ -14,7 +14,10 @@ export const FinalPage = () => {
   return (
     <Stack vertical>
       <BigH1>🙌 Thank you for your feedback!</BigH1>
-      <img src="./team.png" alt="Team image" />
+      <img
+        src="https://dpcloud-assets.s3.amazonaws.com/6e0a8608-dbcb-41d9-aa64-7877095af01a-team.png"
+        alt="Team image"
+      />
       <div style={{ fontSize: "15px" }}>
         <StyledH1>
           Thank you so much for your time and feedback. Your insights will be
@@ -34,7 +37,7 @@ export const FinalPage = () => {
           on our community forum.
           <br /> <br />
           View comments by other customers on this feature idea at&nbsp;
-          <a href="hthttps://support.deskpro.com/community/7/create-topictps://www.figma.com/exit?url=https%3A%2F%2Fsupport.deskpro.com%2Fen-US%2Fcommunity%2Fview%2Fimproving-view-settings">
+          <a href="https://support.deskpro.com/en-US/community/view/improving-view-settings">
             https://support.deskpro.com/en-US/community/view/improving-view-settings.
           </a>
         </StyledH1>

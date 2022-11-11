@@ -12,6 +12,8 @@ import { fetchFeedbackFeed } from "../utils";
 export const Main = () => {
   const { client } = useDeskproAppClient();
 
+  const [ranFirstTime, setRanFirstTime] = useState(false);
+
   const [tabs, setTabs] = useState<ITab[]>([]);
 
   const { theme } = useDeskproAppTheme();
@@ -23,6 +25,7 @@ export const Main = () => {
 
   useInitialisedDeskproAppClient((client) => {
     (async () => {
+ 
       const finishedFeedback = (await client.getUserState("feedbackinfo"))?.[0]
         ?.data as string;
 
@@ -32,7 +35,7 @@ export const Main = () => {
         ...tab,
         status:
           (JSON.parse(finishedFeedback || "[]") as IFeedbackStatus[]).find(
-            (status) => status.guid === tab.guid.split("/")?.slice(-1)[0]
+            (status) => status.guid === tab.guid
           )?.status || "new",
         expiry_date:
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -50,7 +53,7 @@ export const Main = () => {
       );
 
       sessionStorage.setItem("feedback", JSON.stringify(mappedFeedback));
-
+      setRanFirstTime(true);
       setTabs(mappedFeedback);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -73,8 +76,32 @@ export const Main = () => {
 
     await client.setUserState("feedbackinfo", JSON.stringify(parsedFeedback));
 
-    setTabs([...tabs]);
+    setTabs([
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      // this is valid
+      ...tabs.filter((e) => e.guid !== guid),
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      // this is valid
+      { ...tabs?.find((e) => e.guid === guid), status: "dismissed" },
+    ]);
   };
+
+  useInitialisedDeskproAppClient(
+    (client) => {
+      if (!ranFirstTime) return;
+
+      client.setBadgeCount(
+        tabs.filter(
+          (e) =>
+            e.status === "new" &&
+            new Date(e.expiry_date).getTime() - new Date().getTime() > 0
+        ).length
+      );
+    },
+    [tabs]
+  );
 
   return (
     <div>
