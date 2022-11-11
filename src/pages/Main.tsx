@@ -23,15 +23,10 @@ export const Main = () => {
 
   useInitialisedDeskproAppClient((client) => {
     (async () => {
-
       const finishedFeedback = (await client.getUserState("feedbackinfo"))?.[0]
         ?.data as string;
 
-      const sessionFeedback = sessionStorage.getItem("feedback");
-
-      const feedbackTabs: ITab[] = sessionFeedback
-        ? JSON.parse(sessionFeedback)
-        : await fetchFeedbackFeed();
+      const feedbackTabs: ITab[] = await fetchFeedbackFeed();
 
       const mappedFeedback = feedbackTabs.map((tab) => ({
         ...tab,
@@ -42,7 +37,11 @@ export const Main = () => {
       }));
 
       client.setBadgeCount(
-        mappedFeedback.filter((e) => e.status === "new").length
+        mappedFeedback.filter(
+          (e) =>
+            e.status === "new" &&
+            new Date(e.pubDate).getTime() - new Date().getTime() > 0
+        ).length
       );
 
       sessionStorage.setItem("feedback", JSON.stringify(mappedFeedback));
