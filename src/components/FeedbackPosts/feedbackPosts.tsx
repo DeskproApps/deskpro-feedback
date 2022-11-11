@@ -46,7 +46,7 @@ export const FeedbackPosts = ({ data, onDismiss }: Props) => {
           ];
 
         const timeDifference =
-          new Date(feedback.pubDate).getTime() - new Date().getTime();
+          new Date(feedback.expiry_date).getTime() - new Date().getTime();
 
         return (
           <Stack

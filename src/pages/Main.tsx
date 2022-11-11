@@ -34,13 +34,18 @@ export const Main = () => {
           (JSON.parse(finishedFeedback || "[]") as IFeedbackStatus[]).find(
             (status) => status.guid === tab.guid.split("/")?.slice(-1)[0]
           )?.status || "new",
+        expiry_date:
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          // this is valid
+          tab[Object.keys(tab).find((e) => e.includes("expiry_date"))],
       }));
 
       client.setBadgeCount(
         mappedFeedback.filter(
           (e) =>
             e.status === "new" &&
-            new Date(e.pubDate).getTime() - new Date().getTime() > 0
+            new Date(e.expiry_date).getTime() - new Date().getTime() > 0
         ).length
       );
 

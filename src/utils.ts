@@ -22,5 +22,4 @@ const rssToJson = async (url: string) => {
   return Array.isArray(item) ? item : [item];
 };
 
-export const fetchFeedbackFeed = async () =>
-  rssToJson(NEW_FEEDBACK_RSS_URL);
+export const fetchFeedbackFeed = async () => rssToJson(NEW_FEEDBACK_RSS_URL);

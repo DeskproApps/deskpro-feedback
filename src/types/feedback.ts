@@ -5,6 +5,7 @@ export interface ITab {
   guid: string;
   pubDate: string;
   status?: string;
+  expiry_date: string;
 }
 
 export interface IFeedbackStatus {
