@@ -88,6 +88,8 @@ export const FeedbackPage = ({ setFinished, data }: Props) => {
         body: JSON.stringify({
           topicId: data?.guid?.split("/")?.slice(-1)[0],
           body: text,
+          name: deskproUser.name,
+          email: deskproUser.primaryEmail,
         }),
       }
     );
