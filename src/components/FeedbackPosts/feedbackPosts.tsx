@@ -5,7 +5,7 @@ import {
   useDeskproAppTheme,
   useInitialisedDeskproAppClient,
 } from "@deskpro/app-sdk";
-import { Tag } from "@deskpro/deskpro-ui";
+import { AnyIcon, Tag } from "@deskpro/deskpro-ui";
 import { faClockFour } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
@@ -77,7 +77,7 @@ export const FeedbackPosts = ({ data, onDismiss }: Props) => {
                 </P1>
                 <Stack style={{ marginTop: "1px" }}>
                   <Tag
-                    icon={faClockFour}
+                    icon={faClockFour as AnyIcon}
                     label={
                       timeDifference > 0
                         ? `${Math.ceil(
@@ -98,7 +98,7 @@ export const FeedbackPosts = ({ data, onDismiss }: Props) => {
                             borderColor: theme.colors.grey80,
                           }
                     }
-                    closeIcon={faClockFour}
+                    closeIcon={faClockFour as AnyIcon}
                   />
                 </Stack>
               </Stack>

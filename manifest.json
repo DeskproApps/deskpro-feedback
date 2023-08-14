@@ -2,16 +2,12 @@
   "name": "@deskpro-apps/deskpro-feedback",
   "title": "Deskpro Feedback",
   "description": "The app will give you a preview of a potential new feature or UI update for Deskpro, it will explain how it works, and why we're creating it.",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "scope": "agent",
   "hasDevMode": true,
   "isSingleInstall": false,
-  "targets": [
-    {
-      "target": "global",
-      "entrypoint": "index.html"
-    }
-  ],
+  "serveUrl": "https://apps-cdn.deskpro-service.com/__name__/__version__",
+  "targets": [{ "target": "global", "entrypoint": "index.html" }],
   "settings": {
     "api_key": {
       "title": "Feedback API Key",
@@ -25,16 +21,12 @@
     "whitelist": [
       {
         "url": "https://support.deskpro.com/en-US/portal/api/community/forum/9.rss",
-        "methods": [
-          "GET"
-        ],
+        "methods": ["GET"],
         "timeout": 10
       },
       {
         "url": "https://feedback-app-proxy.deskpro.workers.dev/",
-        "methods": [
-          "POST"
-        ],
+        "methods": ["POST"],
         "timeout": 10
       }
     ]

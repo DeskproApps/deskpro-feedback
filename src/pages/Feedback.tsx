@@ -1,4 +1,5 @@
 import {
+  AnyIcon,
   Button,
   HorizontalDivider,
   Stack,
@@ -53,14 +54,17 @@ export const Feedback = () => {
         <Stack align="center" gap={12}>
           <Stack>
             <FontAwesomeIcon
-              icon={faArrowUpRightFromSquare}
+              icon={faArrowUpRightFromSquare as unknown as {
+                prefix: "fas";
+                iconName: "mailchimp";
+              } }
               onClick={() => window.open(data?.guid)}
               style={{ cursor: "pointer" }}
             ></FontAwesomeIcon>
           </Stack>
           {!finished && (
             <Button
-              icon={faArrowLeft}
+              icon={faArrowLeft as AnyIcon}
               text="Back"
               intent="secondary"
               onClick={() => navigate("/")}
