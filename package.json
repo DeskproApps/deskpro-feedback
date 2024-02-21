@@ -19,7 +19,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "1.0.6",
-    "fast-xml-parser": "^4.0.11",
+    "fast-xml-parser": "^4.1.2",
     "flatpickr": "^4.6.13",
     "html-react-parser": "^3.0.4",
     "polished": "^4.1.1",
