@@ -1,11 +1,8 @@
 import {
-  Button,
-  P1,
-  Stack,
   useDeskproAppTheme,
   useInitialisedDeskproAppClient,
 } from "@deskpro/app-sdk";
-import { AnyIcon, Tag } from "@deskpro/deskpro-ui";
+import { AnyIcon, Tag, Button, P1, Stack } from "@deskpro/deskpro-ui";
 import { faClockFour } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import { Button, Stack } from "@deskpro/app-sdk";
+import { Button, Stack } from "@deskpro/deskpro-ui";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BigH1 } from "../styles";

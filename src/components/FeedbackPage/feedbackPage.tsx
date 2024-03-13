@@ -1,10 +1,6 @@
+import { Button, Checkbox, Stack, H1, TextArea } from "@deskpro/deskpro-ui";
 import {
-  Button,
-  Checkbox,
-  Stack,
   useInitialisedDeskproAppClient,
-  H1,
-  TextArea,
   useDeskproAppClient,
   proxyFetch,
   useDeskproAppTheme,

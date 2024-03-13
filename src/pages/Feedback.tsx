@@ -1,8 +1,6 @@
+import { AnyIcon, Button, Stack } from "@deskpro/deskpro-ui";
 import {
-  AnyIcon,
-  Button,
   HorizontalDivider,
-  Stack,
   useDeskproAppTheme,
 } from "@deskpro/app-sdk";
 import { useEffect, useState } from "react";
