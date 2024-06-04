@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { UserContextProvider } from "./context/userContext";
-import "iframe-resizer/js/iframeResizer.contentWindow.js";
 
 ReactDOM.render(
   <React.StrictMode>
