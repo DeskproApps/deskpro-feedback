@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./main.css";
 import "simplebar/dist/simplebar.min.css";
 import App from "./App";
 import { UserContextProvider } from "./context/userContext";
