@@ -1,9 +1,9 @@
 {
-  "name": "horizon-vite-app-template",
+  "name": "@deskpro-apps/deskpro-feedback",
   "version": "0.0.0",
   "license": "BSD-3-Clause",
   "scripts": {
-    "start": "vite --port 3001",
+    "start": "vite",
     "build": "rimraf ./dist/* && tsc && vite build",
     "build:package": "yarn build && yarn package",
     "package": "rimraf ./build/* && node ./bin/package.js",
