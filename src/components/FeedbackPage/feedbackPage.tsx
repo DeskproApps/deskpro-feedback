@@ -90,7 +90,7 @@ export const FeedbackPage = ({ setFinished, data }: Props) => {
       }
     );
 
-    if (!response.ok) {
+    if (!response.status.toString().startsWith("2")) {
       setError("checkbox", {
         type: "required",
         message: "Error submitting feedback, please try again",
