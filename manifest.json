@@ -2,7 +2,7 @@
   "name": "@deskpro-apps/deskpro-feedback",
   "title": "Deskpro Feedback",
   "description": "The app will give you a preview of a potential new feature or UI update for Deskpro, it will explain how it works, and why we're creating it.",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "scope": "agent",
   "hasDevMode": true,
   "isSingleInstall": false,
