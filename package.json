@@ -21,7 +21,7 @@
     "@heroicons/react": "1.0.6",
     "@sentry/react": "^9.44.0",
     "@sentry/vite-plugin": "^3.6.1",
-    "fast-xml-parser": "^4.5.3",
+    "fast-xml-parser": "^5.2.5",
     "flatpickr": "^4.6.13",
     "html-react-parser": "^3.0.16",
     "polished": "^4.3.1",
