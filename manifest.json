@@ -27,7 +27,12 @@
       {
         "url": "https://feedback-app-proxy.deskpro.workers.dev/",
         "methods": ["POST"],
-        "timeout": 10
+        "timeout": 10,
+        "settingsInjection": {
+          "api_key": {
+            "header": ["Authorization"]
+          }
+        }
       }
     ]
   }
